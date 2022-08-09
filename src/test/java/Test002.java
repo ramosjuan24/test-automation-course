@@ -1,21 +1,27 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import sun.java2d.loops.TransformHelper;
 
 
 public class Test002 {
 
-    @Test
-    public void Test001() {
+    /**
+     * Metodo de inicializacion de Selenium con Chromedriver
+     * Con este metoo
+     * como un TEST
+     */
 
-        String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/chromedriver";
+    @Test
+    public void Test002() throws InterruptedException {
+
+        String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/chromedriver2";
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
         WebDriver driver = new ChromeDriver();
+        driver.get("https://opensource-demo.orangehrmlive.com/");
+        Thread.sleep(8000);
 
-        driver.get("https://www.selenium.dev/");
-
-        driver.quit();
     }
 
 }

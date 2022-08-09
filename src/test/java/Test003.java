@@ -1,37 +1,71 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
+
+import org.testng.Assert;
+import org.testng.annotations.*;
 
 
 public class Test003 {
 
+    WebDriver driver;
+
+    @BeforeClass
+    public static void setupClass() {
+
+        System.out.println("Entro por BeforeClass");
+        WebDriverManager.chromedriver().setup();
+
+    }
+
+    @BeforeMethod
+    public void setup(){
+        System.out.println("Entro por BeforeMethod");
+        driver = new ChromeDriver();
+    }
+
+
     @Test
-    public void Test001() throws InterruptedException {
+    public void Test002() throws InterruptedException {
 
-        String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/chromedriver";
-        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
-        WebDriver driver = new ChromeDriver();
+        System.out.println("Entro por Test");
 
-        driver.get("https://www.selenium.dev/");
+        driver.get("https://opensource-demo.orangehrmlive.com/");
 
-        driver.manage().window().setSize(new Dimension(1440, 804));
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//div[@id='main_navbar']/ul/li[4]/a/span")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.id("tabs-3-1-tab")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.id("tabs-3-2-tab")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.id("tabs-3-3-tab")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.id("tabs-3-4-tab")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.id("tabs-3-5-tab")).click();
+        driver.manage().window().maximize();
+
+        driver.findElement(By.xpath("//input[@id='txtUsername']")).click();
+        driver.findElement(By.cssSelector("#txtUsername")).clear();
+        driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+
+        driver.findElement(By.id("txtPassword")).click();
+        driver.findElement(By.id("txtPassword")).clear();
+        driver.findElement(By.id("txtPassword")).sendKeys("admin123");
+
+        String nombre = driver.findElement(By.xpath("//*[@id='content']/div[2]/span")).getText();
+        Assert.assertEquals(nombre, "( Username : Admin | Password : admin123 )");
+
+
+        //driver.findElement(By.id("btnLogin")).click();
+        //Thread.sleep(2000);
+
+    }
+
+    @AfterMethod
+    public void afterMetho() throws InterruptedException {
+
+        System.out.println("Entro por afterMetho");
+
+    }
+
+    @AfterClass
+    public void afterClass() throws InterruptedException {
 
         driver.quit();
+        System.out.println("Entro por afterClass");
+
     }
 
 }
