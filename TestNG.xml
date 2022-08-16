@@ -4,9 +4,15 @@
 <suite name="Suite Test Login" >
 
 
-    <test name="Test Login">
+    <test name="Test Login-1">
         <classes>
             <class name="test.Test005"/>
+        </classes>
+    </test>
+
+    <test name="Test Login-2">
+        <classes>
+            <class name="test.Test006"/>
         </classes>
     </test>
 
