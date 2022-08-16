@@ -13,10 +13,11 @@ public class Test005 extends AbstracTest {
     @Test
     public void testLogin()  {
 
-        LoginPage page = new LoginPage(driver);
-        page.ingresoUsuario();
-        page.ingresoPassword();
-        page.clicBtnLogin();
+        LoginPage pageLogin = new LoginPage(driver);
+        pageLogin.ingresoUsuario("Admin");
+        pageLogin.ingresoPassword("admin123");
+        pageLogin.clicBtnLogin();
+        pageLogin.validaSesion();
 
     }
 
