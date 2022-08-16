@@ -17,7 +17,7 @@ public class Test002 {
     @Test
     public void Test002() throws InterruptedException {
 
-        String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/chromedriver2";
+        String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/chromedriver";
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
         WebDriver driver = new ChromeDriver();
