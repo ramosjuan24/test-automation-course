@@ -3,17 +3,16 @@
 
 <suite name="Suite Test Login" >
 
+    <listeners>
+        <listener class-name="utils.Listeners.TestListener"/>
+    </listeners>
+
 
     <test name="Test Login-1">
         <classes>
-            <class name="test.Test005"/>
+            <class name="test.Test007"/>
         </classes>
     </test>
 
-    <test name="Test Login-2">
-        <classes>
-            <class name="test.Test006"/>
-        </classes>
-    </test>
 
 </suite>

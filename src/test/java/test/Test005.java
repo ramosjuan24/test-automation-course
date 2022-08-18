@@ -11,7 +11,7 @@ public class Test005 extends AbstracTest {
      * test Login con estructura POM
      */
     @Test
-    public void testLogin()  {
+    public void testLogin() throws InterruptedException {
 
         LoginPage pageLogin = new LoginPage(driver);
         pageLogin.ingresoUsuario("Admin");

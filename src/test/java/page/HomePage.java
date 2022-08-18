@@ -23,7 +23,6 @@ public class HomePage {
     By btnSearch = By.id("searchBtn");
     By textoResponse = By.xpath("//*[@id='content']/div[2]/div[2]");
 
-
     public void clicMenuDirectory(){
 
         driver.findElement(menuDirectory).click();
@@ -41,8 +40,6 @@ public class HomePage {
         WebElement comboJobs = driver.findElement(selectJobs);
         Select selectJobs = new Select(comboJobs);
         selectJobs.selectByVisibleText(nameJobs);
-
-
     }
 
     public void selectComboboxLocation(String location){
@@ -55,6 +52,7 @@ public class HomePage {
     public void clicBtnSearch(){
 
       driver.findElement(btnSearch).click();
+
     }
 
     public void textReponse(){
